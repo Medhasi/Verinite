@@ -1,0 +1,48 @@
+<div class="container">
+
+    <h2>Book Category Details</h2>
+    <!-- &nbsp;&nbsp;<a class="btn btn-primary mb-3" (click)="addBookCategory()">add</a> -->
+    <button routerLink="/addbookcategory" class="btn btn-primary" id="btn-add">Add <i class="fas fa-plus"></i></button>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <div class="container row">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <!--         <th>ID</th> -->
+                        <th>BookId</th>
+                        <th>CategoryId</th>
+                        <th>bookTitle</th>
+                        <th>description</th>
+                        <th>categoryTitle</th>
+                        <th>Update</th>
+                        <th>View</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let bookg of book | paginate:{itemsPerPage:count,currentPage:p}">
+                        <td>{{bookg.book_id}}</td>
+                        <td>{{bookg.category_id}}</td>
+                        <td>{{bookg.book_title}}</td>
+                        <td>{{bookg.description}}</td>
+                        <td>{{bookg.category_title}}</td>
+                        <td><button type="button" (click)="updatebook(bookg.id)" class="btn btn-primary">
+                                <i class="fas fa-pencil-alt"></i></button>
+                        </td>
+                        <td><button type="button" (click)="getview(bookg.id)" class="btn btn-primary">
+                                <i class="fas fa-eye"></i></button>
+                        </td>
+                        <!-- <td><button type="button" class="btn btn-primary" (click)="viewBook(book.bookId)"><i
+                        class="fas fa-eye"></i></button></td> -->
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+
+    </div>
+</div>

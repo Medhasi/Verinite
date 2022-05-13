@@ -1,0 +1,56 @@
+<div class="container">
+    <h3>Create Delivery Address</h3>
+    <a routerLink='/viewdelivery' class="btn btn-link">View Delivery</a>
+    <form [formGroup]="delivery">
+        <label for="Customername">Customername<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" id="customername" placeholder="Customername"
+            [(ngModel)]="deliverykga.customername" formControlName="customername">
+        <div *ngIf="customername.invalid && (customername.touched||submitted)">
+            <span class="text-danger" *ngIf="customername.errors?.required">customername is required</span>
+            <span class="text-danger" *ngIf="customername.errors?.pattern">Please enter customername</span>
+        </div>
+        <label for="Address1">Address1<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" id="address1" placeholder="Address1" [(ngModel)]="deliverykga.address1"
+            formControlName="address1">
+        <div *ngIf="address1.invalid && (address1.touched||submitted)">
+            <span class="text-danger" *ngIf="address1.errors?.required">address1 is required</span>
+            <span class="text-danger" *ngIf="address1.errors?.pattern">Please enter address1</span>
+        </div>
+        <label for="Address2">Address2<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" id="address2" placeholder="Address2" [(ngModel)]="deliverykga.address2"
+            formControlName="address2">
+        <div *ngIf="address2.invalid && (address2.touched||submitted)">
+            <span class="text-danger" *ngIf="address2.errors?.required">address2 is required</span>
+            <span class="text-danger" *ngIf="address2.errors?.pattern">Please enter address2</span>
+        </div>
+        <label for="City">City<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" id="city" placeholder="City" [(ngModel)]="deliverykga.city"
+            formControlName="city">
+        <div *ngIf="city.invalid && (city.touched||submitted)">
+            <span class="text-danger" *ngIf="city.errors?.required">city is required</span>
+            <span class="text-danger" *ngIf="city.errors?.pattern">Please enter city</span>
+        </div>
+        <label for="State">State<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" id="state" placeholder="State" [(ngModel)]="deliverykga.state"
+            formControlName="state">
+        <div *ngIf="state.invalid && (state.touched||submitted)">
+            <span class="text-danger" *ngIf="state.errors?.required">state is required</span>
+            <span class="text-danger" *ngIf="state.errors?.pattern">Please enter state</span>
+        </div>
+        <label for="Country">Country<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" id="country" placeholder="country" [(ngModel)]="deliverykga.country"
+            formControlName="country">
+        <div *ngIf="country.invalid && (country.touched||submitted)">
+            <span class="text-danger" *ngIf="country.errors?.required">country is required</span>
+            <span class="text-danger" *ngIf="country.errors?.pattern">Please enter country</span>
+        </div>
+        <label for="Pincode">Pincode<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" id="pincode" placeholder="Pincode" [(ngModel)]="deliverykga.pincode"
+            formControlName="pincode">
+        <div *ngIf="country.invalid && (pincode.touched||submitted)">
+            <span class="text-danger" *ngIf="pincode.errors?.required">pincode is required</span>
+            <span class="text-danger" *ngIf="pincode.errors?.pattern">Please enter pincode</span>
+        </div>
+        <button type="submit" (click)="save()" class="btn btn-success">Submit</button>
+    </form>
+</div>

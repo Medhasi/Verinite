@@ -1,0 +1,102 @@
+<div class="bg">
+  <div class="container ">
+
+
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-body">
+
+
+          <form [formGroup]="order" class="form">
+            <div class="hi">
+              <h1>delivary deatails</h1>
+
+              <div >
+                <!-- <input type="radio" value="addr[i]" name="address" formControlName="address" >{{addr.customer_name}},{{addr.address_1}},{{addr.city}},{{addr.state}},{{addr.country}},{{addr.pincode}},{{addr.mobile_number}}.
+                </label>
+                <div *ngIf="address.invalid && (address.touched||submitted)">
+                  <span class="text-danger" *ngIf="address.errors?.required">address is required please mention address</span>
+
+              </div> -->
+                <label for="address">Choose Address:</label>
+
+                <select [(ngModel)]="selectedAddress" formControlName="address">
+                  <option *ngFor="let addr of listdetails" [ngValue]="addr">{{addr.customer_name}},{{addr.address_1}},{{addr.city}},{{addr.state}},{{addr.country}},{{addr.pincode}},{{addr.mobile_number}}.</option>
+                </select>
+                <div *ngIf="address.invalid && (address.touched||submitted)">
+                  <span class="text-danger" *ngIf="address.errors?.required">address is required please mention address</span>
+
+              </div>
+              </div>
+              <button (click)=addAddress() class="btn btn-success">Add Adresss</button>
+
+            </div>
+
+            <div class="hi">
+              <h3>Make Payment Here</h3>
+            </div>
+
+
+            <div class="form-group">
+
+
+
+              <label for="email" class="names">Card Holder Name :</label>
+              <input type="text" class="form-control" [(ngModel)]="payment.customerName" id="name"
+                placeholder="Enter card holder name" formControlName="customerName">
+              <div *ngIf="customerName.invalid && (customerName.touched||submitted)">
+                <span class="text-danger" *ngIf="customerName.errors?.required">customer name required</span>
+                <!-- <span class="text-danger" *ngIf="accountNumber.errors?.pattern">password should contain minimum length,one Capital,special character and number </span> -->
+              </div>
+
+            </div>
+            <div class="form-group">
+              <label for="pwd" class="names">Account Number:</label>
+              <input type="text" class="form-control" [(ngModel)]="payment.accountNumber" id="pwd" name="ac"
+                placeholder="Enter Account number" formControlName="accountNumber">
+              <div *ngIf="accountNumber.invalid && (accountNumber.touched||submitted)">
+                <span class="text-danger" *ngIf="accountNumber.errors?.required">Account Number required</span>
+                <!-- <span class="text-danger" *ngIf="accountNumber.errors?.pattern">password should contain minimum length,one Capital,special character and number </span> -->
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="pwd" class="names">IFSC Code:</label>
+              <input type="text" class="form-control" [(ngModel)]="payment.ifsc" id="ifsc" placeholder="enter ifsc code"
+                formControlName="ifsc">
+              <div *ngIf="ifsc.invalid && (ifsc.touched||submitted)">
+                <span class="text-danger" *ngIf="ifsc.errors?.required">ifsc code required</span>
+
+
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="pwd" class="names">amount:</label>
+              <input type="number" readonly class="form-control" [(ngModel)]="totalAmount" id="totalAmount"
+                name="balence" placeholder="Enter amount" formControlName="amount">
+              <div *ngIf="amount.invalid && (amount.touched||submitted)">
+                <span class="text-danger" *ngIf="amount.errors?.required">amount required</span>
+                <span class="text-danger" *ngIf="amount.errors?.pattern">amount should contain numbers</span>
+              </div>
+
+            </div>
+
+
+
+
+
+            <div class="col-md-12 text-center">
+              <div class="btn-toolbar">
+                <button type="submit" (click)=OrderNow(a) class="btn btn-primary">Submit</button>
+                <button type="button" (click)=cancel() class="btn btn-warning">Cancel</button>
+              </div>
+            </div>
+
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

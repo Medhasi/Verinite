@@ -1,0 +1,58 @@
+<div class="container">
+
+    <a routerLink='/viewdelivery' class="btn btn-link">View Delivery Address</a>
+    <div [hidden]="submitted" style="width: 400px;">
+        <form [formGroup]="delivery">
+            <label for="Customername">Customername<span style="color:red"> *</span></label>
+            <input type="text" class="form-control" id="customername" placeholder="Customername"
+                [(ngModel)]="deliveryt.customername" formControlName="customername">
+            <div *ngIf="customername.invalid && (customername.touched||submitted)">
+                <span class="text-danger" *ngIf="customername.errors?.required">Customername Is Required</span>
+                <span class="text-danger" *ngIf="customername.errors?.pattern">Please Enter Customername</span>
+            </div>
+            <label for="Address1">Address1<span style="color:red"> *</span></label>
+            <input type="text" class="form-control" id="address1" placeholder="Address1"
+                [(ngModel)]="deliveryt.address1" formControlName="address1">
+            <div *ngIf="address1.invalid && (address1.touched||submitted)">
+                <span class="text-danger" *ngIf="address1.errors?.required">Address1 Is Required</span>
+                <span class="text-danger" *ngIf="address1.errors?.pattern">Please Enter Address1</span>
+            </div>
+            <label for="Address2">Address2<span style="color:red"> *</span></label>
+            <input type="text" class="form-control" id="address2" placeholder="Address2"
+                [(ngModel)]="deliveryt.address2" formControlName="address2">
+            <div *ngIf="address2.invalid && (address2.touched||submitted)">
+                <span class="text-danger" *ngIf="address2.errors?.required">Address2 Is Required</span>
+                <span class="text-danger" *ngIf="address2.errors?.pattern">Please Enter Address2</span>
+            </div>
+            <label for="City">City<span style="color:red"> *</span></label>
+            <input type="text" class="form-control" id="city" placeholder="City" [(ngModel)]="deliveryt.city"
+                formControlName="city">
+            <div *ngIf="city.invalid && (city.touched||submitted)">
+                <span class="text-danger" *ngIf="city.errors?.required">City Is Required</span>
+                <span class="text-danger" *ngIf="city.errors?.pattern">Please Enter City</span>
+            </div>
+            <label for="State">State<span style="color:red"> *</span></label>
+            <input type="text" class="form-control" id="state" placeholder="State" [(ngModel)]="deliveryt.state"
+                formControlName="state">
+            <div *ngIf="state.invalid && (state.touched||submitted)">
+                <span class="text-danger" *ngIf="state.errors?.required">State Is Required</span>
+                <span class="text-danger" *ngIf="state.errors?.pattern">Please Enter State</span>
+            </div>
+            <label for="Country">Country<span style="color:red"> *</span></label>
+            <input type="text" class="form-control" id="country" placeholder="Country" [(ngModel)]="deliveryt.country"
+                formControlName="country">
+            <div *ngIf="country.invalid && (country.touched||submitted)">
+                <span class="text-danger" *ngIf="country.errors?.required">Country Is Required</span>
+                <span class="text-danger" *ngIf="country.errors?.pattern">Please Enter Country</span>
+            </div>
+            <label for="Pincode">Pincode<span style="color:red"> *</span></label>
+            <input type="text" class="form-control" id="pincode" placeholder="Pincode" [(ngModel)]="deliveryt.pincode"
+                formControlName="pincode">
+            <div *ngIf="country.invalid && (pincode.touched||submitted)">
+                <span class="text-danger" *ngIf="pincode.errors?.required">Pincode Is Required</span>
+                <span class="text-danger" *ngIf="pincode.errors?.pattern">Please Enter Pincode</span>
+            </div>
+            <button type="submit" class="btn btn-success" (click)="onSubmit()">Submit</button>
+        </form>
+    </div>
+</div>

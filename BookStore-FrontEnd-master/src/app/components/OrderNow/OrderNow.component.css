@@ -1,0 +1,56 @@
+/* Made with love by Mutiullah Samim*/
+
+select
+{
+  color:black;
+  background-color: white;
+}
+.container{
+  height: 100%;
+  align-content: center;
+  }
+
+  .card{
+  height: 950px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.781) !important;
+  }
+  .hi{
+    text-align: center;
+    color: white;
+  }
+
+
+.bg{
+  background-color:pink;
+}
+
+
+
+
+  .remember{
+  color: white;
+  }
+
+
+
+
+  .links{
+  color: white;
+  }
+
+  .links a{
+  margin-left: 4px;
+  }
+  .form{
+    margin-top: 56px;
+  }
+  .names{
+    color:white
+  }
+  .card-header h3{
+    color: white;
+    }
+

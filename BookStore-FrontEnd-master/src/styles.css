@@ -1,0 +1,117 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/*
+ @import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+ @font-face{font-family:"Roboto Slab" ;
+    src: url("assets/fonts/static/RobotoSlab-Regular.ttf") format("truetype");}
+    h1{font-family: "Roboto Slab";}
+     body {padding-top: 56px;}
+
+      body,html{height: 100%;}
+
+      .footer{position: absolute;bottom: 10px;height: 60px;}
+      .wrapper{min-height: 100%;position: relative;}
+      .content{adding-bottom: 100px;} */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+th{
+    font-size: 13px;
+    font-style: Sans-serif;
+}
+td {
+    font-size: 12px;
+    font-style: Sans-serif;
+}
+
+#inputBox {
+    position: relative;
+    left: 71%;
+    border-radius: 8px;
+    padding: 3px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+#btn-add {
+    position: relative;
+    /* top: 119px;
+  left: 135px; */
+    border-radius: 8px;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.collapsed {
+    position: relative;
+    left: 18%;
+}
+
+.a.nav-link {
+    left: 10px;
+}
+
+td {
+    font-size: medium;
+}
+
+@media (max-width: 480px) {
+    #inputBox {
+        position: relative;
+        left: 39%;
+        border-radius: 8px;
+        padding: 3px 8px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+    }
+    #btn-add {
+        position: relative;
+        border-radius: 8px;
+        border: none;
+        left: -58%;
+        color: white;
+        padding: 8px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+    }
+}

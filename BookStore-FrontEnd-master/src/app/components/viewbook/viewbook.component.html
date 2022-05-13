@@ -1,0 +1,53 @@
+<div class="container">
+
+    <h2>Book Details</h2>
+
+<table style="border-collapse:collapse;  border-style:none; border-width:1pt">
+    <tr>
+        <td style="border: none;">
+            <img  src="{{book.retrieved_image}}" height="300px" width="200px">
+        </td>
+        <td style="border: none;">
+            <table  style="border-collapse:collapse; border-color:Black; border-style:solid; border-width:1pt">
+                <tr >
+                    <td>Book Id</td>
+                    <td>{{book.book_id}}</td>
+                </tr>
+                <tr>
+                    <td>Book Title</td>
+                    <td>{{book.book_title}}</td>
+                </tr>
+                <tr>
+                    <td>Book Description</td>
+                    <td>{{book.description}}</td>
+                </tr>
+                <tr>
+                    <td>Book Price</td>
+                    <td>{{book.book_price}}</td>
+                </tr>
+                <tr>
+                    <td>Category</td>
+                    <td>{{book.category_title}}</td>
+                </tr>
+                <tr>
+                    <td>Author</td>
+                    <td>{{book.first_name}}&nbsp; {{book.last_name}}</td>
+                </tr>
+                <tr>
+                    <td>Published By</td>
+                    <td>{{book.publisher_name}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+       
+        
+       
+    </div>
+
+    
+    
+    
+

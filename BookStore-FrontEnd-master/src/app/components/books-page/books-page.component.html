@@ -1,0 +1,54 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            
+                <div class="card text-center" style="width: fit-content" *ngFor="let book of books; let i = index">
+                    <div class="col center-block">
+                        <div class="card-header">
+                            <img src="{{ book.retrieved_image }}" height="150px" width="220px" alt="" />
+                        </div>
+                        <div class="card-body">
+                            <div class="details">
+                                <h3 class="card-title"><b>Name : </b>{{ book.book_title }}</h3>
+                                <h4 class="card-text">
+                                    <b>Description : </b>{{ book.description }}
+                                </h4>
+                                <h4 class="card-text"><b>Price : </b>{{ book.book_price }}</h4>
+                                <div class="row1" *ngIf="book.quantity>10">
+                                    <p style="margin-left: 60px">IN STOCK {{book.quantity}}</p>
+                                </div>
+                                <div class="row2" *ngIf="book.quantity>0 && book.quantity<=10">
+                                    <p style="margin-left: 60px">Limited stock hurry-up! only {{book.quantity}} left</p>
+
+
+                                </div>
+                                <div class="row3" *ngIf="book.quantity==0 || book.quantity<0">
+                                    <p style="margin-left: 60px">OUT OF STOCK {{book.quantity}}</p>
+                                </div>
+                                <h4 class="card-text"><b>Quantity </b></h4>
+                            </div>
+                            <div class="qtyBtn m-1">
+                                <input type="number" class="m-1 p-2" name="qty" id="qty" [(ngModel)]="book.bookQty" />
+                            </div>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <button class="btn btn-success m-3" [disabled]="userRole!='user'" (click)="addToCart(book)">
+            Add to cart
+          </button>
+                            <button (click)="viewBook(book.book_id)" class="btn btn-primary">More Details</button>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    

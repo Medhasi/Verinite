@@ -1,0 +1,71 @@
+<div class="container">
+    <!-- form fields below -->
+    <h3>please fill this form to Login</h3>
+    <form [formGroup]="saveCustomer">
+        <label for="FirstName" class="required">FirstName</label>
+        <input type="text" class="form-control" id="firstName" formControlName="firstName"
+            [(ngModel)]="insertCustomer.firstName" placeholder="First Name" name="firstName" />
+        <div *ngIf="firstName.invalid && firstName.touched || submitted">
+            <span class="error" *ngIf="firstName.errors?.required">FirstName is required</span>
+            <span class="error" *ngIf="firstName.errors?.pattern">FirstName should contain characters only</span>
+        </div>
+        <label for="LastName" class="required">LastName</label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName"
+            [(ngModel)]="insertCustomer.lastName" placeholder="Last Name" name="lastName" />
+        <div *ngIf="lastName.invalid && lastName.touched || submitted">
+            <span class="error" *ngIf="lastName.errors?.required">LastName id is required</span>
+            <span class="error" *ngIf="lastName.errors?.pattern">LasttName should contain characters only</span>
+        </div>
+        <label for="Mobile Number" class="required">MobileNumber</label>
+        <input type="text" class="form-control"[value]="insertCustomer.mobileNumber" id="mobileNumber" formControlName="mobileNumber"
+            [(ngModel)]="insertCustomer.mobileNumber" placeholder="MobileNumber" name="mobileNumber" readonly/>
+
+        <label for="Email-Address" class="required">Email-Address</label>
+        <input type="text" class="form-control" [value]="insertCustomer.emailAddress" id="emailAddress" formControlName="emailAddress"
+            [(ngModel)]="insertCustomer.emailAddress" placeholder="EmailAddress" name="emailAddress" readonly/>
+
+        <label for="Address" class="required">Address</label>
+        <input type="text" class="form-control" id="address" formControlName="address"
+            [(ngModel)]="insertCustomer.address" placeholder="Address" name="address" />
+        <div *ngIf="address.invalid && address.touched || submitted">
+            <span class="error" *ngIf="address.errors?.required">Address is required</span>
+            <span class="error" *ngIf="address.errors?.pattern"></span>
+        </div>
+        <label for="City" class="required">City</label>
+        <input type="text" class="form-control" id="city" formControlName="city" [(ngModel)]="insertCustomer.city"
+            placeholder="City" name="city" />
+        <div *ngIf="city.invalid && city.touched|| submitted">
+            <span class="error" *ngIf="city.errors?.required">City is required</span>
+            <span class="error" *ngIf="city.errors?.pattern">City should contain characters only</span>
+        </div>
+        <label for="State" class="required">State</label>
+        <input type="text" class="form-control" id="state" formControlName="state" [(ngModel)]="insertCustomer.state"
+            placeholder="State" name="state" />
+        <div *ngIf="state.invalid && state.touched|| submitted">
+            <span class="error" *ngIf="state.errors?.required">State is required</span>
+            <span class="error" *ngIf="state.errors?.pattern">State should contain Characters only</span>
+        </div>
+
+        <label for="Country" placeholder="Country" class="required">Country</label>
+        <select class="form-control" formControlName="country" [(ngModel)]="insertCustomer.country" name="country"
+            id="Country">
+            <option value="true" selected>India</option>
+            <option value="false">Others</option>
+        </select>
+        <span class="error" *ngIf="country.errors?.required">please select in among</span>
+
+        <br>
+        <label for="Pincode" class="required">Pincode</label>
+        <input type="text" class="form-control" id="pincode" formControlName="pincode"
+            [(ngModel)]="insertCustomer.pincode" placeholder="PinCode" name="pincode" />
+        <div *ngIf="pincode.invalid && pincode.touched|| submitted">
+            <span class="error" *ngIf="pincode.errors?.required">Pincode is required</span>
+            <span class="error" *ngIf="pincode.errors?.pattern">Pincode should contain integer only</span>
+        </div>
+        <label for="RegId" class="required">RegId</label>
+        <input type="text" class="form-control" id="RegId" [value]="insertCustomer.regId"formControlName="regId" [(ngModel)]="insertCustomer.regId"
+            placeholder="RegId" name="regId" readonly />
+
+        <button type="button" class="bth btn-success" (click)="addCustomer()">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,38 @@
+<br>
+<hr>
+<div class="container row">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+   
+    <div class="table-responsive">
+        <button routerLink="/addfeedback" class="btn btn-primary" >Add <i class="fas fa-plus"></i></button>
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>Name</th>
+                    <th>Email</th>
+                    <!-- <th>suggestion</th> -->
+                    <th>Scale</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let feedg of feedback | paginate:{itemsPerPage:count,currentPage:p}">
+                    <td>{{feedg.name}}</td>
+                    <td>{{feedg.email}}</td>
+                    <!-- <td>{{feedg.suggestion}}</td> -->
+                    <td>{{feedg.scale}}</td>
+                    <td>{{feedg.comments}}</td>
+                    <td><button class="btn btn-primary" (click)="deletefeedback(feedg.feedbackid)"><i
+                    class="fas fa-trash"></i></button></td>
+
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-right">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+        <!-- <pagination-controls id="listing_pagination" (pageChange)="page = $event">
+        </pagination-controls> -->
+    </div>
+</div>

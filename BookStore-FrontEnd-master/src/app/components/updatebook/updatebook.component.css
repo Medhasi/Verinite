@@ -1,0 +1,13 @@
+.form-control {
+    display: block;
+    width: 50%;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.error {
+    color: red;
+}

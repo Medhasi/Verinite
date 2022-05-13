@@ -1,0 +1,46 @@
+<div class="container">
+
+    <h2 class=" col-12 text-center">Publisher List</h2>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+    <input id="searchField" type="text" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search" id="inputBox">
+    <br>
+    <button routerLink="/addPublishers" class="btn btn-primary" id="btn-add">Add <i class="fas fa-plus"></i></button>
+
+    <hr>
+    <div class="container row">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Pincode</th>
+                        <th>State</th>
+                        <th>Country</th>
+                        <th>Updated On</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let publishers of publisherDetails| filter:searchTerm | paginate:{itemsPerPage:count,currentPage:p}">
+                        <td>{{publishers.publisherName}}</td>
+                        <td>{{publishers.address}}</td>
+                        <td>{{publishers.city}}</td>
+                        <td>{{publishers.pincode}}</td>
+                        <td>{{publishers.state}}</td>
+                        <td>{{publishers.country}}</td>
+                        <td>{{publishers.updatedOn | date:'dd/MM/yy'}}</td>
+                        <td><button (click)="updatePublisher(publishers.publisherId)" class="btn btn-primary" id="update"><i class="fas fa-pencil-alt"></i></button></td>
+                        <td><button (click)="DeletePublisher(publishers.publisherId)" class="btn btn-primary" id="delete"><i class="fas fa-trash"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

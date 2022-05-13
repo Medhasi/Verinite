@@ -1,0 +1,41 @@
+<div class="container">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <h2 class=" col-10 text-center">Category Details</h2>
+    <input id="searchField" type="text" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search Box" id="inputBox">
+    <button routerLink="/add-category" class="btn btn-primary" id="btn-add">Add <i class="fas fa-plus"></i></button>
+
+    <!-- <button routerLink="/add-category" class="btn btn-primary">add</button> -->
+    <!-- <input id="searchField" type="text" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search" id="inputBox"> -->
+    <br>
+    <hr>
+    <div class="container row">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Created On</th>
+                        <th>Updated On</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let category of categoryList |filter:searchTerm | paginate:{itemsPerPage:count,currentPage:p}">
+                        <td>{{category.categoryTitle}}</td>
+                        <td>{{category.createdOn |date:'dd/MM/y'}}</td>
+                        <td>{{category.updatedOn | date:'dd/MM/y'}}</td>
+                        <td><button class="btn btn-primary" (click)="updateCategory(category.categoryId)"><i
+                                    class="fas fa-pencil-alt"></i></button></td>
+                        <td><button class="btn btn-primary" (click)="Deletemessage(category.categoryId)"><i
+                                    class="fas fa-trash"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

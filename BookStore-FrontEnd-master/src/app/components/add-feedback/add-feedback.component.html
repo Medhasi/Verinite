@@ -1,0 +1,41 @@
+<div class="container">
+    <h3>Create feedback</h3>
+    <form [formGroup]="feedback">
+        <label for="name">Name<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" id="name" placeholder="name"
+            [(ngModel)]="feedbackgg.name" formControlName="name">
+        <div *ngIf="name.invalid && (name.touched||submitted)">
+            <span class="text-danger" *ngIf="name.errors?.required">Name is required</span>
+            <span class="text-danger" *ngIf="name.errors?.pattern">Please enter name....ok</span>
+        </div>
+        <label for="email">Email<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" id="email" placeholder="email" [(ngModel)]="feedbackgg.email"
+            formControlName="email">
+        <div *ngIf="email.invalid && (email.touched||submitted)">
+            <span class="text-danger" *ngIf="email.errors?.required">Email is required</span>
+            <span class="text-danger" *ngIf="email.errors?.pattern">Please enter email</span>
+        </div>
+        <!-- <label for="suggestion">suggestion<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" id="suggestion" placeholder="suggestion" [(ngModel)]="feedbackgg.suggestion"
+            formControlName="suggestion">
+        <div *ngIf="suggestion.invalid && (suggestion.touched||submitted)">
+            <span class="text-danger" *ngIf="suggestion.errors?.required">suggestion is not required</span>
+            <span class="text-danger" *ngIf="suggestion.errors?.pattern">Please do not suggestion </span>
+        </div> -->
+        <label for="scale">Scale<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" id="scale" placeholder="scale" [(ngModel)]="feedbackgg.scale"
+            formControlName="scale">
+        <div *ngIf="scale.invalid && (scale.touched||submitted)">
+            <span class="text-danger" *ngIf="scale.errors?.required">Scale is required</span>
+            <span class="text-danger" *ngIf="scale.errors?.pattern">Please enter scale</span>
+        </div>
+        <label for="comments">Comments<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" id="comments" placeholder="comments" [(ngModel)]="feedbackgg.comments"
+            formControlName="comments">
+        <div *ngIf="comments.invalid && (comments.touched||submitted)">
+            <span class="text-danger" *ngIf="comments.errors?.required">Comments is required</span>
+            <span class="text-danger" *ngIf="comments.errors?.pattern">Do not enter comments</span>
+        </div>
+        <button type="submit" (click)="save()" class="btn btn-success">Submit</button>
+    </form>
+</div>

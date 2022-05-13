@@ -1,0 +1,29 @@
+<!-- <input id="searchField" type="text" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search Box"
+id="inputBox"> -->
+
+<div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>StockId</th>
+                    <th>BookId</th>
+                    <th>BookName</th>
+                    <th>BookDiscription</th>
+                    <th>Available Stock Quantity</th>
+                    <th>BookPrice</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let need of listOfStocks | filter:searchTerm | paginate:{itemsPerPage:count,currentPage:p} ">
+                    <td>{{need.stock_id}}</td>
+                    <td>{{need.book_id}}</td>
+                    <td>{{need.book_title}}</td>
+                    <td>{{need.description}}</td>
+                    <td>{{need.quantity}}</td>
+                    <td>{{need.book_price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

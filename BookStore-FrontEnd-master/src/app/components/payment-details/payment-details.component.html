@@ -1,0 +1,38 @@
+<div class="container">
+    <h2 class=" col-2 text-center"> Payment Details</h2>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <input id="searchField" type="text" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search here" id="inputBox">
+    <br>
+<button *ngIf="loginService.isUserLoggedIn() && loginService.getUserRole()" (click)="exportElmToExcel()" class="fa fa-download"></button>
+    <div class="table-responsive">
+        <table class="table" #paymentTable>
+            <tr>
+                <th>paymentId</th>
+                <th>User Name</th>
+                <th>Transaction Id</th>
+                <th>Account Number</th>
+                <th>Card Holder Name</th>
+                <th>IFSC</th>
+                <th>Transaction Status</th>
+                
+                <th>balance</th>
+                <!-- <th>actions</th> -->
+            </tr>
+            <tr *ngFor="let payment of listPayment | filter:searchTerm | paginate:{itemsPerPage:count,currentPage:p}">
+                <td>{{payment.paymentId}}</td>
+                <td>{{payment.username}}</td>
+                <td>{{payment.transactionId}}</td>
+                <td>{{payment.accountNumber}}</td>
+                <td>{{payment.customerName}}</td>
+                <td>{{payment.ifsc}}</td>
+                <td>{{payment.paymentStatus}}</td>
+                <td>{{payment.amount}}</td>
+               
+
+            </tr>
+        </table>
+        <div class="text-right">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+</div>

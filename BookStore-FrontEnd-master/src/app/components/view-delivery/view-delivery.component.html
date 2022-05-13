@@ -1,0 +1,128 @@
+<div class="container">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+    <h2 class=" col-9 text-center">Delivery Address Details</h2>
+    <input id="searchField" type="text" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search Box" id="inputBox">
+    <button *ngIf="loginService.isUserLoggedIn() && loginService.getUserRole()" routerLink="/adddelivery" class="btn btn-primary" id="btn-add">Add <i class="fas fa-plus"></i></button>
+
+    <br>
+    <hr>
+
+    <ng-container *ngIf="loginService.isUserLoggedIn() && registerEntity.userRole=='user'">
+
+        <div class="container row">
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Customer Name </th>
+                            <th>Address1</th>
+                            <th>Address2</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Country</th>
+                            <th>Pincode</th>
+                            <th>Update</th>
+                            <th>View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr *ngFor="let bookg of delivery | paginate: {id: 'listing_pagination', itemsPerPage: 10, currentPage: page ,totalItems:totallength } "> -->
+                        <tr *ngFor="let bookg of deliverycustomer | filter:searchTerm | paginate:{itemsPerPage:count,currentPage:p}">
+                            <td>{{bookg.customer_name}}</td>
+                            <td>{{bookg.address_1}}</td>
+                            <td>{{bookg.address_2}}</td>
+                            <td>{{bookg.city}}</td>
+                            <td>{{bookg.state}}</td>
+                            <td>{{bookg.country}}</td>
+                            <td>{{bookg.pincode}}</td>
+                            <!-- <td>{{bookg.isDeleted}}</td> -->
+    
+                            <td><button class="btn btn-primary" (click)="updatedelivery(bookg.id)"><i
+                                        class="fas fa-pencil-alt"></i></button></td>
+    
+                            <td><button type="button" class="btn btn-primary" (click)="getdeliveryby(bookg.id)"><i
+                                        class="fas fa-eye"></i></button></td>
+    
+                            <!-- <td><button (click)="updatedelivery(bookg.id)" class="btn btn-info" style="margin-left: 10px">updatedelivery</button>
+            </td>   
+             <td><button (click)="getdeliveryby(bookg.id)" class="btn btn-info" style="margin-left: 10px">getdeliveryby</button>
+            </td>   -->
+                            <!-- <td><button class="btn btn-info" (click)="updatebook(bookg.id)"> <i class="fas fa-pencil-alt"></i></button></td>  -->
+                            <!-- <td><button class="btn btn-info" (click)="getview(bookg.id)"> <i class="fas fa-pencil-alt"></i></button></td>  -->
+    
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+                <!-- <pagination-controls id="listing_pagination" (pageChange)="page = $event">
+                </pagination-controls> -->
+            </div>
+        </div>
+
+    </ng-container>
+    
+    <ng-container *ngIf="loginService.isUserLoggedIn() && registerEntity.userRole=='admin'">
+
+        <div class="container row">
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Customer Name </th>
+                            <th>Address1</th>
+                            <th>Address2</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Country</th>
+                            <th>Pincode</th>
+                            <th>Update</th>
+                            <th>View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- <tr *ngFor="let bookg of delivery | paginate: {id: 'listing_pagination', itemsPerPage: 10, currentPage: page ,totalItems:totallength } "> -->
+                        <tr *ngFor="let bookg of deliverycustomer | filter:searchTerm | paginate:{itemsPerPage:count,currentPage:p}">
+                            <td>{{bookg.customername}}</td>
+                            <td>{{bookg.address1}}</td>
+                            <td>{{bookg.address2}}</td>
+                            <td>{{bookg.city}}</td>
+                            <td>{{bookg.state}}</td>
+                            <td>{{bookg.country}}</td>
+                            <td>{{bookg.pincode}}</td>
+                            <!-- <td>{{bookg.isDeleted}}</td> -->
+    
+                            <td><button class="btn btn-primary" (click)="updatedelivery(bookg.id)"><i
+                                        class="fas fa-pencil-alt"></i></button></td>
+    
+                            <td><button type="button" class="btn btn-primary" (click)="getdeliveryby(bookg.id)"><i
+                                        class="fas fa-eye"></i></button></td>
+    
+                            <!-- <td><button (click)="updatedelivery(bookg.id)" class="btn btn-info" style="margin-left: 10px">updatedelivery</button>
+            </td>   
+             <td><button (click)="getdeliveryby(bookg.id)" class="btn btn-info" style="margin-left: 10px">getdeliveryby</button>
+            </td>   -->
+                            <!-- <td><button class="btn btn-info" (click)="updatebook(bookg.id)"> <i class="fas fa-pencil-alt"></i></button></td>  -->
+                            <!-- <td><button class="btn btn-info" (click)="getview(bookg.id)"> <i class="fas fa-pencil-alt"></i></button></td>  -->
+    
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+                <!-- <pagination-controls id="listing_pagination" (pageChange)="page = $event">
+                </pagination-controls> -->
+            </div>
+        </div>
+
+    </ng-container>
+    
+    
+ 
+</div>

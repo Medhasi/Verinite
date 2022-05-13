@@ -1,0 +1,20 @@
+<div class="container">
+
+   <form [formGroup]="saveAuthor">
+      <label for="FirstName" class="required">FirstName</label>
+      <input type="text" class="form-control" id="firstName" formControlName="firstName" [(ngModel)]="Insert.firstName"
+         placeholder="First Name" name="firstName" />
+      <div *ngIf="firstName.invalid && firstName.touched|| submitted">
+         <span class="error" *ngIf="firstName.errors?.required">FirstName is required</span>
+         <span class="error" *ngIf="firstName.errors?.pattern">FirstName should contain characters only</span>
+      </div>
+      <label for="LastName" class="required">LastName</label>
+      <input type="text" class="form-control" id="lastName" formControlName="lastName" [(ngModel)]="Insert.lastName"
+         placeholder="Last Name" name="lastName" />
+      <div *ngIf="lastName.invalid && lastName.touched|| submitted">
+         <span class="error" *ngIf="lastName.errors?.required">LastName id is required</span>
+         <span class="error" *ngIf="lastName.errors?.pattern">LasttName should contain characters only</span>
+      </div>
+      <button type="button" class="bth btn-success" (click)="insertAuthor()">SaveAuthor</button>
+   </form>
+</div>

@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+<div class="container">
+    <h2 class=" col-2 text-center"> Order Details</h2>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
+    <input id="searchField" type="text" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search Here" id="inputBox">
+    <br>
+    <ng-container *ngIf="lstOrderBook.length !=0">
+        <button *ngIf="loginService.isUserLoggedIn() && loginService.getUserRole()"  (click)="exportElmToExcel()" class="fa fa-download btn btn-success"></button>
+
+        <div class="table-responsive">
+            <table class="table" #ordersTable>
+                <tr>
+                    <th>OrderId</th>
+                    <th>User Name</th>
+                    <th>BookId</th>
+                    <th>BookName</th>
+                    <th>BookPrice per book</th>
+                    <th>bookQty</th>
+                    <th>Payment id</th>
+                    <th>OrderedDate</th>
+                    <th>delivarable_date</th>
+                    <th>Invoice</th>
+
+                    <!-- <th>actions</th> -->
+                </tr>
+                <tr *ngFor="let order of lstOrderBook | filter:searchTerm | paginate:{itemsPerPage:count,currentPage:p}">
+                    <td>{{order.order_number}}</td>
+                    <td>{{order.username}}</td>
+                    <td>{{order.bookId}}</td>
+                    <td>{{order.bookTitle}}</td>
+                    <td>{{order.book_price}}</td>
+                    <td>{{order.bookQty}}</td>
+                    <td>{{order.paymentId}}</td>
+
+                    <td>{{order.orderedDate |date:"dd/MM/y"}}</td>
+                    <td>{{order.delivarableDate |date:"dd/MM/y"}}</td>
+                    <td align="center"><button class="btn-download" (click)="dowloadInvoice(order.paymentId)">
+                  <mat-icon>download_for_offline</mat-icon>
+                  </button></td>
+                </tr>
+            </table>
+            <div class="text-right">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="lstOrderBook.length==0">
+        <div class="text-center">
+            <h2>Oops You Dont have any Orders</h2>
+            <h3><a routerLink="/landingPage">Order Something</a></h3>
+        </div>
+    </ng-container>
+
+
+</div>

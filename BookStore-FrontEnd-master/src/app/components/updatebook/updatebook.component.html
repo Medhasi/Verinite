@@ -1,0 +1,39 @@
+
+<div class="container">
+
+    <h1>Update Book</h1>
+    <form [formGroup]="insertBook">
+
+        <label class="required" for="bookTitle">BookTitle</label>
+        <input type="text" class="form-control" id="bookTitle" formControlName="bookTitle" placeholder="Enter book title" [(ngModel)]="books.bookTitle" name="bookTitle" readonly>
+        <div *ngIf="bookTitle.invalid && (bookTitle.touched || submitted)">
+            <span class="error" *ngIf="bookTitle.errors?.required">Book title is required</span>
+            <span class="error" *ngIf="bookTitle.errors?.pattern">Please enter book name</span>
+        </div>
+        <label class="required" for="description">Description</label>
+        <input type="text" class="form-control" id="description" formControlName="bookDiscription" placeholder="Enter description" [(ngModel)]="books.description" name="description">
+        <div *ngIf="bookDiscription.invalid && (bookDiscription.touched || submitted)">
+            <span class="error" *ngIf="bookDiscription.errors?.required">Book discription is required</span>
+            <span class="error" *ngIf="bookDiscription.errors?.pattern">Please enter valid Discription</span>
+            <span class="error" *ngIf="bookDiscription.errors?.minlength">Discription should contain minimum length of 6
+                charcters</span>
+        </div>
+
+        <label class="required" for="bookPrice">BookPrice</label>
+        <input type="text" class="form-control" id="bookPrice" formControlName="bookPrice" placeholder="Enter book Price" [(ngModel)]="books.bookPrice" name="bookPrice">
+        <div *ngIf="bookPrice.invalid && (bookPrice.touched || submitted)">
+            <span class="error" *ngIf="bookPrice.errors?.required">Book price is required</span>
+            <span class="error" *ngIf="bookPrice.errors?.pattern">Please enter valid price</span>
+
+        </div>
+ 
+        <!-- <input type="file" class="required" accept=".jpg, .jpeg, .png" formControlName="image" (change)="onFileChanged($event)">
+        <img [src]="imgURL" height="150" width="150" *ngIf="imgURL">
+        <div *ngIf="image.invalid && (image.touched || submitted )">
+            <span class="error" *ngIf="image.errors?.required">Image is required</span>
+        </div>
+        <br> -->
+        <button type="button" class="btn btn-success" (click)="saveData()">Save</button>
+    </form>
+</div>
+

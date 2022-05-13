@@ -1,0 +1,103 @@
+
+	<head>
+		<meta charset="utf-8" />
+		<title>{{name}} Invoice Details</title>
+	</head>
+
+	<body>
+	<div  >
+		<div id="recipt" class="invoice-box">
+			<table cellpadding="0" cellspacing="0">
+				<tr class="top">
+					<td colspan="4">
+						<table>
+							<tr>
+
+								<td class="title">
+									<h1 style="color: Red; font-size: 70px; width: 100%; max-width: 300px">BookStore</h1>
+								</td>
+
+								<td>
+									Invoice #: {{invNo}}<br />
+									Ordered Date: {{ordDate|date:"dd/MM/y"}}<br />
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="information">
+					<td colspan="2">
+						<table>
+							<tr>
+								<td>
+									BookStore,<br />
+									Verinite Technologies,<br />
+									Chennai 600096
+
+								</td>
+<td colspan="2"></td>
+
+								<td class="billto">
+									<b>Bill To</b> <br />
+										{{name}}	<br />
+										{{address}} ,
+										{{state}} <br>
+										{{country}}
+										{{pincode}} <br>
+										{{mob}}		<br>
+
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr class="heading">
+					<td>Payment Method</td>
+					<td></td>
+					<td></td>
+					<td>Debit Card</td>
+				</tr>
+
+				<tr class="details">
+					<td>Check</td>
+					<td></td>
+					<td></td>
+					<td>₹ {{amount}}</td>
+				</tr>
+
+				<tr class="heading">
+					<td>Products</td>
+					<td>Quantity</td>
+					<td>Price</td>
+					<td>Image</td>
+				</tr>
+
+				<tr class="item" *ngFor="let item of frontInvoiceData">
+					<td>{{item.book_title | uppercase}}</td>
+					<td>{{item.book_qty}}</td>
+					<td>₹ {{item.book_price}}.00</td>
+					<td><img src="{{item.pic_byte}}" height="80px" width="60px"  alt=""></td>
+				</tr>
+
+
+				<tr class="total">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><b>Total: ₹ {{amount}}.00</b></td>
+				</tr>
+			</table>
+			<br>
+			<footer>
+				<b>Note:</b> &nbsp; <br> this is a Computer Generated invoice no signature is required
+			</footer>
+		</div>
+	</div>
+	<div style="display: grid; text-align: center;">
+		<button (click)="printRecipt()"  class="fas fa-download align-content-end" style="border: none;display: table-cell; vertical-align: bottom;"> Download Recipt</button>
+
+	</div>
+	</body>
+

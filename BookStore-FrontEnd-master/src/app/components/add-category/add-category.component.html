@@ -1,0 +1,19 @@
+<div class="container">
+
+    <form [formGroup]="addCategory">
+        <div class="container">
+            <h1 class="text-center">Add new Category</h1>
+            <hr>
+            <input type="text" class="form-control" placeholder="Category Name " [(ngModel)]="postData.categoryTitle"
+                formControlName="categoryTitle" name="categoryTitle" id="categoryTitle">
+            <div *ngIf="categoryTitle.invalid && categoryTitle.touched||submited">
+                <span class="error" *ngIf="categoryTitle.errors?.required">Category name is required</span>
+                <span class="error" *ngIf="categoryTitle.errors?.pattern">Please valid Category name </span>
+            </div>
+            <div></div>
+            <!-- <button type="submit" class="registerbtn" (click)="onSubmit()"><span>Save</span></button> -->
+            <div><button type="submit" class="btn btn-success" (click)="onSubmit()">Save</button>
+            </div>
+        </div>
+    </form>
+</div>

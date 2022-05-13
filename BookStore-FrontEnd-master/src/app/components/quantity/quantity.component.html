@@ -1,0 +1,35 @@
+<div class="container">
+
+    <h2>Stock Details</h2>
+  
+    <form [formGroup]="insertQuantity">
+  
+      <label for="BookId" class="required">Book Id</label>
+      <input type="text" value="{{book.bookId}}" class="form-control" formControlName="bookId" [(ngModel)]="stock.bookId"
+        readonly /><br>
+  
+      <label for="BookName" class="required">bookTitle</label>
+  
+      <input type="text"[value]="book.bookTitle"name="bookTitle" class="form-control" formControlName="bookTitle"
+        [(ngModel)]="book.bookTitle" readonly /><br>
+        <div *ngIf="bookTitle.invalid && (bookTitle.touched || submitted)">
+          <span class="text-danger" *ngIf="bookTitle.errors?.required">bookTitle is required</span>
+  
+        </div>
+  
+      <label class="required" for="quantity">Quantity</label>
+      <input type="text" class="form-control" id="quantity" formControlName="quantity"
+        placeholder="enter quantity of stock" [(ngModel)]="stock.quantity" name="quantity"><br>
+      <div *ngIf="quantity.invalid && (quantity.touched || submitted)">
+        <span class="text-danger" *ngIf="quantity.errors?.required">quantity is required</span>
+        <span class="text-danger" *ngIf="quantity.errors?.pattern">Please enter numbers only</span>
+      </div>
+  
+      <button type="button" class="bth btn-success" (click)="saveQuantity(book.bookTitle)">Add Quantity</button>
+    </form>
+  
+  
+  
+  
+  </div>
+  

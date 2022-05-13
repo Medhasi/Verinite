@@ -1,0 +1,179 @@
+<div class="container">
+  <h1>Add Book</h1>
+  <form [formGroup]="insertBook">
+    <label class="required" for="bookTitle">BookTitle</label>
+    <div class="input-group">
+      <input
+      type="text"
+      class="form-control"
+      id="bookTitle"
+      formControlName="bookTitle"
+      placeholder="Enter book title"
+      [(ngModel)]="book.bookTitle"
+      name="bookTitle"
+    />
+    </div>
+    <div *ngIf="bookTitle.invalid && (bookTitle.touched || submitted)">
+      <span class="error" *ngIf="bookTitle.errors?.required"
+        >Book title is required</span
+      >
+      <span class="error" *ngIf="bookTitle.errors?.pattern"
+        >Please enter book name</span
+      >
+    </div>
+
+    <label class="required" for="description">Description</label>
+    <div class="input-group">
+      <input
+      type="text"
+      class="form-control"
+      id="description"
+      formControlName="bookDiscription"
+      placeholder="Enter description"
+      [(ngModel)]="book.description"
+      name="description"
+    />
+    </div>
+
+    <div
+      *ngIf="bookDiscription.invalid && (bookDiscription.touched || submitted)"
+    >
+      <span class="error" *ngIf="bookDiscription.errors?.required"
+        >Book discription is required</span
+      >
+      <span class="error" *ngIf="bookDiscription.errors?.pattern"
+        >Please enter valid Discription</span
+      >
+      <span class="error" *ngIf="bookDiscription.errors?.minlength"
+        >Discription should contain minimum length of 6 charcters</span
+      >
+    </div>
+
+    <label class="required" for="bookPrice">BookPrice</label>
+    <div class="input-group">
+      <input
+      type="text"
+      class="form-control"
+      id="bookPrice"
+      formControlName="bookPrice"
+      placeholder="Enter book Price"
+      [(ngModel)]="book.bookPrice"
+      name="bookPrice"
+    />
+    </div>
+  
+    <div *ngIf="bookPrice.invalid && (bookPrice.touched || submitted)">
+      <span class="error" *ngIf="bookPrice.errors?.required"
+        >Book price is required</span
+      >
+      <span class="error" *ngIf="bookPrice.errors?.pattern"
+        >Please enter valid price</span
+      >
+    </div>
+    <label for="authorName"
+      >Choose Author: &nbsp; &nbsp;
+      <i class="fa-solid fa-arrows-rotate" (click)="initAuthorData()"></i
+    ></label>
+    <div class="input-group">
+    <select
+      class="form-control"
+      name="authorName"
+      [(ngModel)]="selectedAuthor"
+      formControlName="authorName"
+      id="select"
+    >
+      <option [disabled]="true">Author Name</option>
+      <option *ngFor="let author of listAuthourdetails" [ngValue]="author">
+        {{ author.firstName }} &nbsp;{{ author.lastName }}.
+      </option>
+    </select>
+    <button (click)="addNewAuthor()" class="btn fa-plus btn-success input-group-addon pb-1"></button>
+  </div>
+    <div *ngIf="authorName.invalid && (authorName.touched || submitted)">
+      <span class="text-danger" *ngIf="authorName.errors?.required"
+        >Select or add new Author</span
+      >
+    </div>
+  
+    <label for="categoryName"
+      >Choose Category: &nbsp; &nbsp;
+      <i class="fa-solid fa-arrows-rotate" (click)="initCategoryData()"></i
+    ></label>
+  <div class="input-group">
+    <select
+      id="select"
+      class="form-control "
+      name="categoryName"
+      [(ngModel)]="selectedCategory"
+      formControlName="categoryName"
+    >
+      <option selected [disabled]="true">Category</option>
+      <option
+        *ngFor="let category of listCategoryDetatils"
+        [ngValue]="category"
+      >
+        {{ category.categoryTitle }}
+      </option></select
+    ><button
+      (click)="addNewCategory()"
+      class="btn fa-plus   input-group-addon pb-1"
+    ></button>
+     </div>
+    <div *ngIf="categoryName.invalid && (categoryName.touched || submitted)">
+      <span class="text-danger" *ngIf="categoryName.errors?.required"
+        >Select or add new category</span
+      >
+    </div>
+ 
+
+    <label class="required" for="publisherId"
+      >Select Publisher &nbsp; &nbsp;
+      <i class="fa-solid fa-arrows-rotate" (click)="initPublisherData()"></i
+    ></label>
+    <div class="input-group">
+    <select
+      id="select"
+      class="form-control"
+      name="publisherId"
+      [(ngModel)]="selectedPublisher"
+      formControlName="publisherId"
+    >
+      <option selected [disabled]="true" [defaultSelected]="true">
+        Publisher Name
+      </option>
+      <option
+        *ngFor="let publisher of listOfPublisherDetails"
+        [ngValue]="publisher"
+      >
+        {{ publisher.publisherName }}
+      </option></select
+    ><button
+      (click)="addNewPublisher()"
+      class="btn fa-plus btn-success input-group-addon pb-1" 
+    ></button>
+  </div>
+    <div *ngIf="publisherId.invalid && (publisherId.touched || submitted)">
+      <span class="text-danger" *ngIf="publisherId.errors?.required"
+        >Select or add new Publisher</span>
+    </div>
+
+    <br />
+    <input
+      type="file"
+      class="required"
+      accept=".jpg, .jpeg, .png"
+      formControlName="image"
+      (change)="onFileChanged($event)"
+    />
+    <img [src]="imgURL" height="150" width="150" *ngIf="imgURL" />
+    <div *ngIf="image.invalid && (image.touched || submitted)">
+      <span class="error" *ngIf="image.errors?.required"
+        >Image is required</span
+      >
+    </div>
+    <br />
+    <button type="button" class="btn btn-success" (click)="saveData()">
+      Save
+    </button>
+  </form>
+</div>

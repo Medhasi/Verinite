@@ -1,0 +1,50 @@
+<div class="container">
+
+    <h2 class=" col-8 text-center">User Registration</h2>
+    <!-- <a routerLink='/view-registration' class="btn btn-link">View User</a> -->
+    <form [formGroup]="addUser">
+
+
+
+
+        <label for="userName">User Name<span style="color:red"> *</span></label>   <input type="text" class="form-control" id="userName" placeholder="User name" [(ngModel)]="registrations.userName" formControlName="userName" UniqueUsername>
+        <div *ngIf="userName.invalid && (userName.touched||submitted)">
+
+            <span class="text-danger" *ngIf="userName.errors?.required">User name is required</span>
+            <span class="text-danger" *ngIf="userName.errors?.pattern">Please enter user name</span>
+            <span class="text-danger" *ngIf="userName.errors?.UniqueUsername">userName already exists</span>
+        </div>
+
+        <label for="emailaddress">Email Address<span style="color:red"> *</span></label>   <input type="text" class="form-control" id="emailaddress" placeholder="Emailaddress" [(ngModel)]="registrations.emailaddress" formControlName="emailaddress" uniqueEmail>
+        <div *ngIf="emailaddress.invalid && (emailaddress.touched||submitted)">
+            <span class="text-danger" *ngIf="emailaddress.errors?.required">Email address is required</span>
+            <span class="text-danger" *ngIf="emailaddress.errors?.pattern">Please enter valid email address</span>
+            <span class="text-danger" *ngIf="emailaddress.errors?.uniqueEmail">email already exists</span>
+
+            <!-- <span *ngIf="iceEngNameExist" class="error-message">Ice Engine Name
+        Allready Present</span> -->
+        </div>
+
+        <label for="mobileNumber">Mobile Number<span style="color:red"> *</span> </label>   <input type="text" class="form-control" id="mobileNumber" placeholder="MobileNumber" maxlength="10" minlength="10" [(ngModel)]="registrations.mobileNumber" formControlName="mobileNumber">
+        <div *ngIf="mobileNumber.invalid && (mobileNumber.touched||submitted)">
+            <span class="text-danger" *ngIf="mobileNumber.errors?.required">Mobile number is required</span>
+            <span class="text-danger" *ngIf="mobileNumber.errors?.pattern">Please enter 10 numbers only</span>
+        </div>
+
+        <label for="password">Password<span style="color:red"> *</span></label>   <input type="password" class="form-control" id="password" name="password" placeholder="Password" minlength="6" maxlength="12" [(ngModel)]="registrations.password" formControlName="password">
+        <div *ngIf="password.invalid && (password.touched||submitted)">
+            <span class="text-danger" *ngIf="password.errors?.required">Password required</span>
+            <span class="text-danger" *ngIf="password.errors?.pattern">password must be 6-12 characters and should contain letters,numbers,special character</span>
+        </div>
+
+        <label for="confirmPassword">Confirm Password<span style="color:red"> *</span></label>   <input type="password" class="form-control" PassWordEqualValidator="password" id="confirmPassword" minlength="6" maxlength="12" placeholder="ConfirmPassword"
+            [(ngModel)]="registrations.confirmPassword" formControlName="confirmPassword" pattern="{{ password.value }}">
+
+        <div *ngIf="confirmPassword.invalid && (confirmPassword.touched||submitted)">
+            <span class="text-danger" *ngIf="confirmPassword.errors?.required">Confirm password is required</span>
+            <span class="text-danger" *ngIf="confirmPassword.errors?.pattern">confirn password did not match</span>
+
+        </div>
+        <br>   <button type="button" class="btn btn-success" (click)="register()">Submit</button>
+    </form>
+</div>

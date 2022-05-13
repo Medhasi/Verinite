@@ -1,0 +1,51 @@
+<div class="container">
+
+    <h2 class=" col-9 text-center">Customers Details</h2>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <input id="searchField" type="text" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search Box" id="inputBox">
+    <button routerLink="/addCustomer" class="btn btn-primary" id="btn-add">Add <i class="fas fa-plus"></i></button>
+    <br>
+    <hr>
+    <div class="container row">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Customer Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Mobile No</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Country</th>
+                        <th>Pincode</th>
+                        <th>Register Id</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let customer of listOfCustomers |filter:searchTerm | paginate:{itemsPerPage:count,currentPage:p}">
+                        <td>{{customer.customerId}}</td>
+                        <td>{{customer.firstName}}</td>
+                        <td>{{customer.lastName}}</td>
+                        <td>{{customer.mobileNumber}}</td>
+                        <td>{{customer.emailAddress}}</td>
+                        <td>{{customer.address}}</td>
+                        <td>{{customer.city}}</td>
+                        <td>{{customer.state}}</td>
+                        <td>{{customer.country}}</td>
+                        <td>{{customer.pincode}}</td>
+                        <td>{{customer.regId}}</td>
+                        <td><button class="btn btn-primary" (click)="update(customer.customerId)"> <i
+                  class="fas fa-pencil-alt"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-right">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

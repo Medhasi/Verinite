@@ -1,0 +1,26 @@
+.form-control {
+    display: block;
+    width: 50%;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.error {
+    color: red;
+}
+.fa-arrowsfa-rotate
+{
+    color: red;
+}
+select,label
+{
+    display: block;
+}
+
+#select {
+  font-family: Consolas, monospace;
+  color: black;
+}

@@ -1,0 +1,21 @@
+<div class="container">
+    <form (ngSubmit)="onUpdate()" #form="ngForm">
+
+        <h1 class="text-center">Update Publisher {{publisher.publisherName}}</h1>
+        <hr>
+        <input type="text" placeholder="Publisher Name " [(ngModel)]="publisher.publisherName" name="publisherName"
+            id="publisherName" autocomplete="false" required>
+        <input type="text" placeholder="Address" [(ngModel)]="publisher.address" name="address" id="publisher.address"
+            autocomplete="false" required>
+        <input type="text" placeholder="City" [(ngModel)]="publisher.city" name="city" id="city" autocomplete="false"
+            required>
+        <input type="text" placeholder="State" [(ngModel)]="publisher.state" name="state" id="state"
+            autocomplete="false" required>
+        <input type="text" placeholder="pincode" [(ngModel)]="publisher.pincode" name="pincode" id="pincode"
+            autocomplete="false" required>
+        <input type="text" placeholder="Country" [(ngModel)]="publisher.country" name="country" id="country"
+            autocomplete="false" required>
+        <button type="submit" class="registerbtn">Update</button>
+
+    </form>
+</div>

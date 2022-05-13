@@ -1,0 +1,24 @@
+<div class="container">
+
+  <h2>Create Book Category</h2>
+  <div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="OnSubmit()">
+      <div class="form-group">
+        <label for="name">categoryId</label>
+        <input type="number" class="form-control" id="categoryId" required [(ngModel)]="bookcat.categoryId"
+          name="categoryId">
+      </div>
+
+      <div class="form-group">
+        <label for="name">bookId</label>
+        <input type="number" class="form-control" id="bookId" required [(ngModel)]="bookcat.bookId" name="bookId">
+      </div>
+      <button type="submit" class="btn btn-success">Save</button>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+    <h4>You submitted successfully!</h4>
+
+  </div>
+</div>

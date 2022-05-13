@@ -1,0 +1,164 @@
+@media only screen and (min-width: 768px) {
+    .cart-icon {
+        transform: translate(1015px, 4px);
+        -webkit-transform: translate(1015px, 4px);
+        -moz-transform: translate(1015px, 4px);
+        -ms-transform: translate(1015px, 4px);
+        -o-transform: translate(1015px, 4px);
+    }
+    #navbarNav {
+        transform: translate(-134px, 0px);
+        -webkit-transform: translate(-134px, 0px);
+        -moz-transform: translate(-134px, 0px);
+        -ms-transform: translate(-134px, 0px);
+        -o-transform: translate(-134px, 0px);
+    }
+    .logout {
+        font-size: large;
+        transform: translate(943px, 5px);
+        -webkit-transform: translate(943px, 5px);
+        -moz-transform: translate(943px, 5px);
+        -ms-transform: translate(943px, 5px);
+        -o-transform: translate(943px, 5px);
+    }
+}
+
+
+/*For Small Screen Devices */
+
+
+/*
+@media only screen and (min-width: 320px) and (max-width:374px) {
+  .logout {
+      transform: translate(175px, -43px);
+      -webkit-transform: translate(175px, -43px);
+      -moz-transform: translate(175px, -43px);
+      -ms-transform: translate(175px, -43px);
+      -o-transform: translate(175px, -43px);
+  }
+  .cart-icon {
+      transform: translate(-21px, 0px);
+      -webkit-transform: translate(-21px, 0px);
+      -moz-transform: translate(-21px, 0px);
+      -ms-transform: translate(-21px, 0px);
+      -o-transform: translate(-21px, 0px);
+  }
+  #navbarNav {
+      transform: translate(36px, 0px);
+      -webkit-transform: translate(36px, 0px);
+      -moz-transform: translate(36px, 0px);
+      -ms-transform: translate(36px, 0px);
+      -o-transform: translate(36px, 0px);
+  }
+} */
+
+@media only screen and (min-width: 768px) {
+    .cart-icon {
+        transform: translate(1000px, 3px);
+        -webkit-transform: translate(1000px, 3px);
+        -moz-transform: translate(1000px, 3px);
+        -ms-transform: translate(1000px, 3px);
+        -o-transform: translate(1000px, 3px);
+    }
+    #navbarNav {
+        transform: translate(-134px, 0px);
+        -webkit-transform: translate(-134px, 0px);
+        -moz-transform: translate(-134px, 0px);
+        -ms-transform: translate(-134px, 0px);
+        -o-transform: translate(-134px, 0px);
+    }
+    .logout {
+        transform: translate(20px, 5px);
+        -webkit-transform: translate(20px, 5px);
+        -moz-transform: translate(20px, 5px);
+        -ms-transform: translate(20px, 5px);
+        -o-transform: translate(20px, 5px);
+    }
+}
+
+
+/* @media only screen and (max-width: 767px)
+{
+.logout
+{
+  transform: translate(17px, 2px);
+  -webkit-transform: translate(17px, 2px);
+  -moz-transform: translate(17px, 2px);
+  -ms-transform: translate(17px, 2px);
+  -o-transform: translate(17px, 2px);
+}
+.cart-icon
+{
+transform: translate(126px, 2px);
+-webkit-transform: translate(126px, 2px);
+-moz-transform: translate(126px, 2px);
+-ms-transform: translate(126px, 2px);
+-o-transform: translate(126px, 2px);
+
+}
+#navbarNav
+{
+transform: translate(36px,0px);
+-webkit-transform: translate(36px,0px);
+-moz-transform: translate(36px,0px);
+-ms-transform: translate(36px,0px);
+-o-transform: translate(36px,0px);
+}
+}
+*/
+
+@media (min-width: 1200px) {
+    /* For Menu Items  */
+    .navbar-expand-xl .navbar-nav {
+        -ms-flex-direction: row;
+        flex-direction: row;
+        transform: translate(-80px, 0px);
+    }
+    /* For Cart Icon */
+    .cart-icon {
+        transform: translate(1000px, 3px);
+        -webkit-transform: translate(1000px, 3px);
+        -moz-transform: translate(1000px, 3px);
+        -ms-transform: translate(1000px, 3px);
+        -o-transform: translate(1000px, 3px);
+    }
+    /* For UserIcon */
+    .dropdown {
+        transform: translate(899px, -4px);
+        -webkit-transform: translate(899px, -4px);
+        -moz-transform: translate(899px, -4px);
+        -ms-transform: translate(899px, -4px);
+        -o-transform: translate(899px, -4px);
+    }
+    .user-cicle {
+        font-size: 35px;
+    }
+    .user-badge {
+        position: relative;
+        right: 21px;
+        bottom: -7px;
+    }
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 78px;
+    z-index: 1000;
+    display: none;
+    float: left;
+    width: fit-content;
+    min-width: fit-content;
+    padding: 0px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 24px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}

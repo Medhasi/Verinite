@@ -1,0 +1,274 @@
+/* Media Query for Mobile Devices */
+
+@media (max-width: 480px) {
+  .cart {
+    position: relative;
+    left: 10%;
+    cursor: pointer;
+    border: 1px  black;
+    background-color: transparent;
+    color: #3498db;
+  
+}
+    .user-badge {
+        position: relative;
+        left: -27px;
+        bottom: -7px;
+    }
+    .cart-icon {
+        position: relative;
+        left: -0%;
+    }
+    .container-fluid .navbar-collapse,
+    .container-fluid .navbar-header .container .navbar-collapse .container .navbar-header {
+        margin-right: 0;
+        position: relative;
+        /* margin-left: 0; */
+        left: -12%;
+    }
+    .collapse .navbar-collapse {
+        padding: 0px 0px 0px 0px;
+    }
+    #navbar {
+        max-width: fit-content;
+        max-width: -moz-fit-content;
+    }
+    .dropdownList {
+        position: relative;
+        left: 5%;
+        /* top: 16%; */
+        /* transform: translate(0%, -104%); */
+    }
+    .navbar-collapse.collapse.show {
+        left: 6%;
+    }
+    .dropdown-menu>li>a {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.42857143;
+        color: #333;
+        white-space: nowrap;
+    }
+    .dropdown-menu>li>a {
+        display: block;
+        clear: both;
+        white-space: nowrap;
+    }
+    ul.dropdown-menu.dropdown-menu-end.user.show {
+        min-width: fit-content;
+    }
+    .dropdown-menu-end {
+        right: 45%;
+        left: auto;
+    }
+    .nav-link {
+        display: block;
+        padding: 0;
+    }
+}
+.cart {
+    position: relative;
+    left: 10%;
+    cursor: pointer;
+    border: 1px  black;
+    background-color: transparent;
+    color: #3498db;
+  
+}
+
+/* Media Query for low resolution Tablets, Ipads */
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .cart {
+    position: relative;
+    left: 10%;
+    cursor: pointer;
+    border: 1px  black;
+    background-color: transparent;
+    color: #3498db;
+  
+}
+    .user-badge {
+        position: relative;
+        left: -27px;
+        bottom: -7px;
+    }
+    .cart-icon {
+        position: relative;
+        left: -0%;
+    }
+    .container-fluid .navbar-collapse,
+    .container-fluid .navbar-header .container .navbar-collapse .container .navbar-header {
+        margin-right: 0;
+        position: relative;
+        /* margin-left: 0; */
+        left: -12%;
+    }
+    .collapse .navbar-collapse {
+        padding: 0px 0px 0px 0px;
+    }
+    #navbar {
+        max-width: fit-content;
+        max-width: -moz-fit-content;
+    }
+    .dropdownList {
+        position: relative;
+        left: 5%;
+        /* top: 16%; */
+        /* transform: translate(0%, -104%); */
+    }
+    .navbar-collapse.collapse.show {
+        left: 6%;
+    }
+    .dropdown-menu>li>a {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.42857143;
+        color: #333;
+        white-space: nowrap;
+    }
+    .dropdown-menu>li>a {
+        display: block;
+        clear: both;
+        white-space: nowrap;
+    }
+    ul.dropdown-menu.dropdown-menu-end.user.show {
+        min-width: fit-content;
+    }
+    .dropdown-menu-end {
+        right: 45%;
+        left: auto;
+    }
+    .nav-link {
+        display: block;
+        padding: 0;
+    }
+}
+
+
+/* Media Query for Tablets Ipads portrait mode */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .navbar {
+        min-width: fit-content;
+        position: relative;
+        min-height: 50px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+    }
+  .cart {
+    position: relative;
+    left: 10%;
+    cursor: pointer;
+    border: 1px  black;
+    background-color: transparent;
+    color: #3498db;
+  
+}
+    .user-badge {
+        position: relative;
+        left: -27px;
+        bottom: -7px;
+    }
+    .cart-icon {
+        position: relative;
+        left: 81%;
+    }
+    .container-fluid .navbar-collapse,
+    .container-fluid .navbar-header .container .navbar-collapse .container .navbar-header {
+        margin-right: 0;
+        position: relative;
+        /* margin-left: 0; */
+        left: -9%;
+    }
+    .collapse .navbar-collapse {
+        padding: 0px 0px 0px 0px;
+    }
+    #navbar {
+        max-width: fit-content;
+        max-width: -moz-fit-content;
+    }
+    .dropdownList {
+        position: relative;
+        left: 85%;
+    }
+    .navbar-collapse.collapse.show {
+        left: 6%;
+    }
+    .dropdown-menu>li>a {
+        display: block;
+        padding: 3px 20px;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.42857143;
+        color: #333;
+        white-space: nowrap;
+    }
+    .dropdown-menu>li>a {
+        display: block;
+        clear: both;
+        white-space: nowrap;
+    }
+    ul.dropdown-menu.dropdown-menu-end.user.show {
+        min-width: fit-content;
+    }
+    .dropdown-menu-end {
+        right: 45%;
+        left: auto;
+    }
+    .nav-link {
+        display: block;
+        padding: 0;
+    }
+}
+
+
+/* Media Query for Laptops and Desktops */
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .cart {
+    position: relative;
+    left: 10%;
+    cursor: pointer;
+    border: 1px  black;
+    background-color: transparent;
+    color: #3498db;
+  
+}
+    .user-badge {
+        position: relative;
+        left: -27px;
+        bottom: -7px;
+    }
+    .cart-icon {
+        position: relative;
+        left: 80%;
+    }
+    .container-fluid .navbar-collapse,
+    .container-fluid .navbar-header .container .navbar-collapse .container .navbar-header {
+        margin-right: 0;
+        position: relative;
+        /* margin-left: 0; */
+        left: -12%;
+    }
+    .collapse .navbar-collapse {
+        padding: 0px 0px 0px 0px;
+    }
+    #navbar {
+        max-width: fit-content;
+        max-width: -moz-fit-content;
+    }
+    .dropdownList {
+        position: relative;
+        left: 81%;
+    }
+}
+
+
+/* Media Query for Large screens */
+
+@media (min-width: 1281px) {}

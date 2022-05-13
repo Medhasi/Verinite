@@ -1,0 +1,54 @@
+<div class="container">
+    <!-- form fields below -->
+    <h3>Please Fill Publisher Details </h3>
+    <form [formGroup]="savePublisher">
+        <label for="FirstName" class="required">FirstName</label>
+        <input type="text" class="form-control" id="firstName" formControlName="publisherName"
+            [(ngModel)]="publisher.publisherName" placeholder="publisher Name " name="publisherName" />
+        <div *ngIf="publisherName.invalid && publisherName.touched || submitted">
+            <span class="error" *ngIf="publisherName.errors?.required">FirstName is required</span>
+            <span class="error" *ngIf="publisherName.errors?.pattern">FirstName should contain characters only</span>
+        </div>
+       
+      
+        <label for="Address" class="required">Address</label>
+        <input type="text" class="form-control" id="address" formControlName="address"
+            [(ngModel)]="publisher.address" placeholder="Address" name="address" />
+        <div *ngIf="address.invalid && address.touched || submitted">
+            <span class="error" *ngIf="address.errors?.required">Address is required</span>
+            <span class="error" *ngIf="address.errors?.pattern"></span>
+        </div>
+        <label for="City" class="required">City</label>
+        <input type="text" class="form-control" id="city" formControlName="city" [(ngModel)]="publisher.city"
+            placeholder="City" name="city" />
+        <div *ngIf="city.invalid && city.touched|| submitted">
+            <span class="error" *ngIf="city.errors?.required">City is required</span>
+            <span class="error" *ngIf="city.errors?.pattern">City should contain characters only</span>
+        </div>
+        <label for="State" class="required">State</label>
+        <input type="text" class="form-control" id="state" formControlName="state" [(ngModel)]="publisher.state"
+            placeholder="State" name="state" />
+        <div *ngIf="state.invalid && state.touched|| submitted">
+            <span class="error" *ngIf="state.errors?.required">State is required</span>
+            <span class="error" *ngIf="state.errors?.pattern">State should contain Characters only</span>
+        </div>
+        <label for="country" class="required">country</label>
+        <input type="text" class="form-control" id="country" formControlName="country"
+            [(ngModel)]="publisher.country" placeholder="country" name="country" />
+        <div *ngIf="country.invalid && country.touched|| submitted">
+            <span class="error" *ngIf="country.errors?.required">Pincode is required</span>
+            
+        </div>
+
+        <label for="Pincode" class="required">Pincode</label>
+        <input type="text" class="form-control" id="pincode" formControlName="pincode"
+            [(ngModel)]="publisher.pincode" placeholder="PinCode" name="pincode" />
+        <div *ngIf="pincode.invalid && pincode.touched|| submitted">
+            <span class="error" *ngIf="pincode.errors?.required">Pincode is required</span>
+            <span class="error" *ngIf="pincode.errors?.pattern">Pincode should contain integer only</span>
+        </div>
+        
+
+        <button type="button" class="bth btn-success" (click)="addPublisher()">Submit</button>
+    </form>
+</div>

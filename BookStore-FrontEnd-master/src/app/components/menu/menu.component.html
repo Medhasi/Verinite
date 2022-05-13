@@ -1,0 +1,105 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" (click)="basicNav.toggle()" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <a class="navbar-brand" routerLink="/landingPage">Book Store</a>
+
+    <div class="cart-icon" >
+      <button *ngIf="loginService.isUserLoggedIn()" [disabled]="userRole!='user'"  routerLink="/cart" class="cart">
+        <mat-icon>shopping_cart</mat-icon>
+        <div style="font-size: 10px" class="badge bg-danger">
+          {{ totalItems }}
+        </div>
+      </button>
+    </div>
+    <div class="dropdownList">
+      <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
+        role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+        <a *ngIf="loginService.isUserLoggedIn()" class="nav-link user">
+          <mat-icon class="user-cicle">account_circle</mat-icon>
+          <div style="font-size: 10px" class="badge bg-info user-badge">
+            {{ username }}
+          </div>
+        </a>
+      </a>
+
+      <ul class="dropdown-menu dropdown-menu-end user" aria-labelledby="navbarDropdownMenuAvatar">
+        <li class="logout-user">
+          <a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link text-center">
+            <i
+            class="fas fa-sign-out"></i> Logout</a>
+        </li> 
+        <li class="text-center">
+          <a *ngIf="loginService.isUserLoggedIn() && loginService.getUserRole()" [routerLink]="['/users']" [queryParams]="{UserRole:'admin'}" [skipLocationChange]="true" class="nav-link"><i
+              class="fas fa-user-cog"></i> Add Admin</a>
+        </li>
+        <li class="text-center">
+          <a *ngIf="loginService.isUserLoggedIn() && loginService.getUserRole()" [routerLink]="['/users']" [queryParams]="{UserRole:'user'}" [skipLocationChange]="true" class="nav-link"><i
+              class="fas fa-user-plus"></i> Add User</a>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav" mdbCollapse #basicNav="mdbCollapse">
+      <ul class="navbar-nav">
+        <li>
+          <a *ngIf="loginService.isUserLoggedIn() && loginService.getUserRole()" routerLink="/books"
+            class="nav-link">Book</a>
+        </li>
+        <li>
+          <a *ngIf="loginService.isUserLoggedIn() && loginService.getUserRole()" routerLink="/view-registration"
+            class="nav-link">Registration</a>
+        </li>
+        <li>
+          <a *ngIf="loginService.isUserLoggedIn() && loginService.getUserRole()" routerLink="/Author" (click)="reload()"
+            class="nav-link">Author</a>
+        </li>
+        <li>
+          <a *ngIf="loginService.isUserLoggedIn() && loginService.getUserRole()" routerLink="/categorys"
+            class="nav-link">Category</a>
+        </li>
+        <!-- <li>
+          <a *ngIf="loginService.isUserLoggedIn() && loginService.getUserRole()" routerLink="/bookcategory"
+            class="nav-link">BookCategory</a>
+        </li> -->
+
+        <li>
+          <a *ngIf="loginService.isUserLoggedIn() && loginService.getUserRole()" routerLink="/Customers"
+            class="nav-link">Customer</a>
+        </li>
+        <li>
+          <a *ngIf="loginService.isUserLoggedIn() && loginService.getUserRole()" routerLink="/publishers"
+            class="nav-link">Publisher</a>
+        </li>
+        <li>
+          <a *ngIf="loginService.isUserLoggedIn()" routerLink="/orders" (click)="reloadPage()"
+            class="nav-link">Orders</a>
+        </li>
+        <li>
+          <a *ngIf="loginService.isUserLoggedIn()" routerLink="/viewdelivery" class="nav-link">DeliveryAddress</a>
+        </li>
+
+        <li>
+          <a *ngIf="loginService.isUserLoggedIn()" routerLink="/payment" class="nav-link">PaymentDeatails</a>
+        </li>
+
+        <li>
+          <a *ngIf="loginService.isUserLoggedIn() && loginService.getUserRole()" routerLink="/stockdeatailsList"
+            class="nav-link">StockDetails</a>
+        </li>
+
+        <li>
+          <a *ngIf="loginService.isUserLoggedIn()" routerLink="/viewfeedback" class="nav-link">Feedback</a>
+        </li>
+        <!-- <li>
+                    <a *ngIf="loginService.isUserLoggedIn() &&loginService.getUserRole()" routerLink="/users" class="nav-link">Add admin</a>
+                </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
